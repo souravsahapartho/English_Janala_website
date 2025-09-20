@@ -32,14 +32,32 @@ const loadWordDetail = async (id) => {
 
 const displayWordDetails = (word) => {
   const detailsBox = document.getElementById("details-container");
-  detailsBox.innerHTML = "Hi I'm from Dhaka";
-    document.getElementById("word_modal").showModal();
+  detailsBox.innerHTML = `
+    <div class="">
+            <h2 class="text-2xl font-bold">${word.word} (<i class="fa-solid fa-microphone-lines"></i>: ${word.pronunciation})</h2>
+          </div>
+          <div class="">
+            <h2 class="font-bold">Meaning</h2>
+            <p>${word.meaning}</p>
+          </div>
+          <div class="">
+            <h2 class="font-bold">Example</h2>
+            <p>${word.sentence}</p>
+          </div>
+          <div class="">
+            <h2 class="font-bold">Synonym</h2>
+            <span class="btn">Syn1</span>
+            <span class="btn">Syn1</span>
+            <span class="btn">Syn1</span>
+          </div>
+  
+  `;
+  document.getElementById("word_modal").showModal();
 };
 
 const displayLevelWord = (words) => {
   const wordContainer = document.getElementById("word-container");
   wordContainer.innerHTML = "";
-
 
   if (words.length == 0) {
     wordContainer.innerHTML = `<div class="text-center rounded-xl py-10 space-y-6 col-span-full font-bangla">
