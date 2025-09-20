@@ -22,9 +22,24 @@ const loadLevelWord = (id) => {
     });
 };
 
+const loadWordDetail = async (id) => {
+  const url = `https://openapi.programming-hero.com/api/word/${id}`;
+
+  const res = await fetch(url);
+  const details = await res.json();
+  displayWordDetails(details.data);
+};
+
+const displayWordDetails = (word) => {
+  const detailsBox = document.getElementById("details-container");
+  detailsBox.innerHTML = "Hi I'm from Dhaka";
+    document.getElementById("word_modal").showModal();
+};
+
 const displayLevelWord = (words) => {
   const wordContainer = document.getElementById("word-container");
   wordContainer.innerHTML = "";
+
 
   if (words.length == 0) {
     wordContainer.innerHTML = `<div class="text-center rounded-xl py-10 space-y-6 col-span-full font-bangla">
@@ -60,7 +75,9 @@ const displayLevelWord = (words) => {
       word.pronunciation ? word.pronunciation : "Pronunciation পাওয়া যায়নি"
     }"</div>
         <div class="flex justify-between items-center">
-          <button onclick="my_modal_5.showModal()" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF50]">
+          <button onclick="loadWordDetail(${
+            word.id
+          })" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF50]">
             <i class="fa-solid fa-circle-info"></i>
           </button>
           <button class="btn bg-[#1A91FF10] hover:bg-[#1A91FF50]">
@@ -88,4 +105,5 @@ const displayLessons = (lessons) => {
     levelContainer.append(btnDiv);
   }
 };
+
 loadLessons();
