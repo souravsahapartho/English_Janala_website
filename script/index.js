@@ -125,7 +125,9 @@ const displayLevelWord = (words) => {
           })" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF50]">
             <i class="fa-solid fa-circle-info"></i>
           </button>
-          <button onclick="" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF50]">
+          <button onclick="pronounceWord('${
+            word.word
+          }')" class="btn bg-[#1A91FF10] hover:bg-[#1A91FF50]">
             <i class="fa-solid fa-volume-high"></i>
           </button>
         </div>
@@ -154,7 +156,7 @@ const displayLessons = (lessons) => {
 
 loadLessons();
 
-// search-button function 
+// search button function
 document.getElementById("btn-search").addEventListener("click", () => {
   removeActive();
   const input = document.getElementById("input-search");
