@@ -154,7 +154,7 @@ const displayLessons = (lessons) => {
 
 loadLessons();
 
-// search button function
+// search-button function 
 document.getElementById("btn-search").addEventListener("click", () => {
   removeActive();
   const input = document.getElementById("input-search");
